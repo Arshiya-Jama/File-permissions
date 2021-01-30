@@ -1,5 +1,4 @@
-def getCode(path):
-    #path = '/Users/arjama/testDir/textfile1.txt' #Enter path here
+def getCode(path)
     st = os.stat(path)
     oct_perm = oct(st.st_mode)
     mask = oct_perm[ 5: 8: 1]
@@ -8,7 +7,6 @@ def getCode(path):
 import os
 import pathlib
 import glob
-#from mainFile import getCode
 
 root_dir = '/Users/arjama'
 maskToSearch = '700' # To be changed as per requirement
@@ -16,9 +14,6 @@ with open('filetest', 'r+') as file:
 
     for filename in glob.iglob(root_dir + '**/**', recursive=True):
         if os.path.isfile(filename):
-            mask = getCode(filename)
+            mask = getCode(filename) #from mainFile import getCode
             if (mask >= maskToSearch):
                 file.write("%s %s\n" % (filename, mask))
-                #file.write(filename)
-                #file.write(mask)
-                #file.write("\n")
